@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <title>ToolBox1</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="sticky-header">
+    <h1>陳列用品-A4紙</h1>
+    <label>標題：
+      <input type="text" id="pdfTitleInput" value="桃園市政府消防局相片說明用紙" />
+    </label>
+    <br />
+    <input type="file" id="imageInput" accept="image/*" multiple />
+    <button id="downloadPdf">下載 PDF</button>
+  </div>
+
+  <div id="sheetContainer">
+    <!-- 頁面生成時才會顯示相片和說明 -->
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
