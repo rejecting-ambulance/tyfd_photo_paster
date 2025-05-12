@@ -58,6 +58,7 @@ label {
   margin: -1px 0;
   padding: 10px;
   border: 2px solid #000; /* 外圍的表格邊框 */
+  height: 512px; /* 固定整個表格高度 */
   width: 92%;
   margin-left: auto;
   margin-right: auto;
@@ -88,6 +89,13 @@ label {
   margin-bottom: 1px;
 }
 
+/* 設置圖片最大高度，防止過大 */
+img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
 /* 使說明與文本框並排顯示 */
 .image-block .description-container {
   display: flex;
@@ -114,7 +122,7 @@ label {
 .description-container {
   display: flex;
   align-items: center;
-  margin-top: 2px;
+  margin-top: auto; /* 推至底部 */
   gap: 6px; /* 說明與輸入框之間的間距 */
 }
 
@@ -162,8 +170,10 @@ label {
 
 
 .image-wrapper {
-  position: relative;
-  display: inline-block;
+  flex: 1; /* 讓圖片區域撐開剩餘空間 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .image-preview {
