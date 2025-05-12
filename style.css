@@ -1,3 +1,4 @@
+/* 整個頁面 */
 body {
   background: #1e1e1e;
   color: #fff;
@@ -6,17 +7,30 @@ body {
   padding: 20px;
 }
 
+/* 置頂標題 */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background: #1e1e1e;
+  padding: 10px 20px;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* 輸入框、按鈕*/
 input, button {
   margin: 10px;
   padding: 10px;
 }
 
+/* 放A4紙的地方*/
 #sheetContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* 產生一張A4紙*/
 .page {
   width: 794px;
   height: 1123px;
@@ -32,10 +46,27 @@ input, button {
   font-family: "DFKai-SB", "BiauKai", serif;
 }
 
+/* 頁腳 */
+.page-footer {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: auto;
+}
+
+/* 設置圖片(所有的img)最大高度，防止過大 */
+img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* 設置文字(所有的label)大小 */
 label {
   font-size: 22px; /* 或你想要的大小 */
 }
 
+/* 標題(標題：) */
 .page-title {
   font-size: 32px;
   font-weight: bold;
@@ -43,14 +74,15 @@ label {
   margin-bottom: 10px;
 }
 
-/* 標題輸入欄位寬度增加（>2倍） */
+/* 標題輸入欄位 */
 #pdfTitleInput {
-  width: 30%; /* 或依實際需要調整更大 */
+  width: 40%; /* 或依實際需要調整更大 */
   font-size: 22px;
   padding: 8px;
   font-family: "DFKai-SB", "BiauKai", serif;
 }
 
+/* 圖片方塊 */
 .image-block {
   display: flex;
   flex-direction: column;
@@ -67,6 +99,16 @@ label {
   position: relative; /* 必須設定才能讓子元素絕對定位 */
 }
 
+/* 圖片方塊內的圖片 */
+.image-block img {
+  max-width: 95%;
+  max-height: 436px;
+  object-fit: contain;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1px;
+}
+
+/* 文字：相片1 */
 .image-label {
   font-size: 14px;
   font-weight: normal;
@@ -80,43 +122,11 @@ label {
   padding-bottom: 5px;
 }
 
-
-/* 更新 image-block，使圖片和說明欄位的上下間距更合理 */
-.image-block img {
-  max-width: 95%;
-  max-height: 436px;
-  object-fit: contain;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  margin-bottom: 1px;
-}
-
-/* 設置圖片最大高度，防止過大 */
-img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
 /* 使說明與文本框並排顯示 */
 .image-block .description-container {
   display: flex;
   align-items: center; /* 垂直對齊 */
   width: 100%;
-}
-
-.description-container textarea {
-  width: 200px;
-  height: 28px;
-  font-size: 14px;
-  resize: none;
-  padding: 1px 8px;
-  font-family: "DFKai-SB", "BiauKai", serif;
-}
-
-.description-container label {
-  font-weight: normal; /* 取消粗體 */
-  font-size: 22px;
-  white-space: nowrap; /* 防止 label 換行 */
 }
 
 /* 說明容器設置為 Flex 佈局，讓 label 和 textarea 並排 */
@@ -127,17 +137,25 @@ img {
   gap: 6px; /* 說明與輸入框之間的間距 */
 }
 
-/* 說明欄位調整為 1 列高、仍保留空間 */
-.image-block textarea {
+/* 文字：(說明：) */
+.description-container label {
+  font-weight: normal; 
+  font-size: 22px;
+  white-space: nowrap; /* 防止 label 換行 */
+}
+
+/* 輸入說明欄位 */
+.description-container textarea {
   width: 90%;
   height: 30px;             /* 1 行文字高度 */
   font-size: 22px;
-  resize: none;
-  margin-top: 2px;
+  resize: none;             /* 無法換行 */
+  margin-top: 0px;
+  margin-bottom: 0px;
   font-family: "DFKai-SB", "BiauKai", serif;
   overflow: hidden;
-  line-height: 1.2;
-  padding: 2px 6px;
+  line-height: 1.1;
+  padding: 2px 4px;
   box-sizing: border-box;
 }
 
@@ -146,30 +164,12 @@ img {
   width: 100%;
 }
 
-/* 下載 PDF 前 textarea 會轉成 div，請加入此段以保持字級*/
+/* 下載 PDF 前 textarea 會轉成 div，請加入此段以保持字級 */
 .image-block div {
   font-size: 22px;
 } 
 
-/* 頁腳 */
-.page-footer {
-  text-align: center;
-  font-size: 14px;
-  color: #666;
-  margin-top: auto;
-}
-
-.sticky-header {
-  position: sticky;
-  top: 0;
-  background: #1e1e1e;
-  padding: 10px 20px;
-  z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-
-
+/* 放按鈕的地方 */
 .image-wrapper {
   flex: 1; /* 讓圖片區域撐開剩餘空間 */
   display: flex;
@@ -177,31 +177,18 @@ img {
   align-items: center;
 }
 
-.image-preview {
-  max-width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.button-group {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
+/* 按鈕群 */
 .button-group {
   position: absolute;
   top: 6px;
   right: 6px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  z-index: 10;
+  gap: 2px;
+  z-index: 10; 
 }
 
+/* 個別按鈕 */
 .button-group button {
   background: rgba(0, 0, 0, 0.6);
   color: white;
